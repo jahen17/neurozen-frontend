@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointments | NeuroZen</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="main-header">
+    <nav class="navbar">
+      <h1>NeuroZen</h1>
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="./patients.html">Patients</a></li>
+        <li><a href="./psychologists.html">Psychologists</a></li>
+        <li><a href="./appointments.html">Appointments</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <h2>Appointments</h2>
+      <p>Create and manage psychological appointments using real API data.</p>
+    </section>
+
+    <section class="layout-grid">
+      <article class="form-card">
+        <h3>Create Appointment</h3>
+
+        <form id="appointmentForm">
+          <div class="form-group">
+            <label for="patientId">Patient</label>
+            <select id="patientId" required>
+              <option value="">Loading patients...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="psychologistId">Psychologist</label>
+            <select id="psychologistId" required>
+              <option value="">Loading psychologists...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="appointmentDate">Appointment date</label>
+            <input type="datetime-local" id="appointmentDate" required />
+          </div>
+
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select id="status">
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" placeholder="Appointment notes..."></textarea>
+          </div>
+
+          <button type="submit" class="btn primary">Save Appointment</button>
+          <p id="appointmentMessage" class="message"></p>
+        </form>
+      </article>
+
+      <article class="table-card">
+        <h3>Appointment List</h3>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Patient</th>
+                <th>Psychologist</th>
+                <th>Specialty</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentsTableBody">
+              <tr>
+                <td colspan="7">Loading appointments...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Developed by Henry Jaredt Montes Ramos | Software Engineering Student</p>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/appointments.js"></script>
+</body>
+</html>
